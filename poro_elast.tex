@@ -6,7 +6,7 @@
 \addtolength{\hoffset}{-0.5cm}
 \setlength{\parindent}{12pt}
 \setlength{\parskip}{3pt}
-\usepackage{amssymb,amsmath,epsfig,graphics,psfrag,graphicx,color,cite,subfigure}
+\usepackage{amssymb,amsmath,epsfig,graphics,psfrag,graphicx,color,cite,subfigure,amsthm}
 \usepackage[colorlinks=false,breaklinks=true,linkcolor=blue]{hyperref}
 \numberwithin{equation}{section}
 \usepackage{cleveref}
@@ -70,6 +70,11 @@
 \newcommand\bbP{\mathbb{P}}
 \newcommand\cP{\mathcal{P}}
 \newcommand\cT{\mathcal{T}}
+
+%Paired delimiters
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+
 \numberwithin{equation}{section}
 \allowdisplaybreaks
 
@@ -285,6 +290,23 @@
 	\begin{equation}\label{funct-G}
 	G(\zeta) :=  - \frac{\rho}{\xi}\int_{\OmP}\,\kappa\boldsymbol{g}\cdot \b \psi.
 	\end{equation}
+
+
+\begin{lem}
+	For any $\underline{\b \sigma}, \underline{\b \tau} \in \mathbb{H}$, we have:
+	\begin{equation*}
+		\abs{a(\underline{\b \sigma},\underline{\b \tau})} \leq C \norm{\underline{\b \sigma}}_{\mathbb{H}} \norm{\underline{\b \tau}}_{\mathbb{H}}
+	\end{equation*}
+\end{lem}
+\begin{proof}
+	From the definition of the bilinear form $a$ \eqref{var-form-A}, since $\norm{\tr({\b \tau})}_{0,\Omega} \leq \sqrt{n}\norm{{\b \tau}}_{0,\Omega}$ and noting that $\frac{n\lambda}{n\lambda+2\mu}\leq 1$ and $c_0\leq \frac{\alpha^2}{\lambda}$, we deduce that
+	\begin{align*}
+		&\abs{a(\underline{\b \sigma},\underline{\b \tau})} \leq \frac{1}{\mu} \norm{{\b \sigma}}_{0,\Omega^P}\norm{{\b \tau}}_{0,\Omega^P}+\frac{2\alpha^2}{\lambda} \norm{p}_{0,\Omega^P}\norm{q}_{0,\Omega^P} + \frac{\alpha}{n\lambda}\sqrt{n} (\norm{p}_{0,\Omega^P}\norm{{\b \sigma}}_{0,\Omega^P}+\norm{p}_{0,\Omega^P}\norm{{\b \tau}}_{0,\Omega^P})\\
+		&\qquad + \frac{1}{\mu} \norm{{\b \sigma^E}}_{0,\Omega^E}\norm{\tilde{\b \tau}}_{0,\Omega^E}
+	\end{align*}	
+\end{proof}
+
+
 	\begin{thebibliography}{99}
 		\small
 		\bibitem{g-2014} 
